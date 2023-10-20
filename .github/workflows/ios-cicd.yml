@@ -29,4 +29,5 @@ jobs:
       run: xcodebuild -workspace YourProject.xcworkspace -scheme YourScheme -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13" test
 
     - name: Deploy
+      uses: actions/setup-xcode@v2
       # Add your deployment steps here, e.g., uploading to App Store Connect or TestFlight
