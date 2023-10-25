@@ -9,25 +9,21 @@ jobs:
   build:
     runs-on: macos-latest
 
-    steps:
+    1. steps:
     - name: Checkout code
       uses: actions/checkout@main
 
-   # - name: Set up Xcode
-   #   uses: actions/setup-xcode@main
-   #   with:
-   #     xcode-version: '15.0'
+    - name: Set up Xcode
+      uses: actions/setup-xcode@main
+      with:
+        xcode-version: '14.1'  # Update with your Xcode version
 
-   # - name: Install dependencies
-   #   run: |
-#        gem install bundler
-    #    bundle install
-    #    pod install
-     # working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj
-
-    - name: Build and Test
-      run: xcodebuild -workspace /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" test
-
+    - name: Build and Run
+      run: |
+        xcodebuild -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme GithubActionsDemoYourScheme -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" clean build test
+      working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/
+      
+    
    # - name: Deploy
       #uses: actions/setup-xcode@main
       # Add your deployment steps here, e.g., uploading to App Store Connect or TestFlight
