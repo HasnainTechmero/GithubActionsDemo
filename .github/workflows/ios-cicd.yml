@@ -9,7 +9,7 @@ jobs:
   build:
     runs-on: macos-latest
 
-    1. steps:
+    steps:
     - name: Checkout code
       uses: actions/checkout@main
 
@@ -21,7 +21,7 @@ jobs:
     - name: Build and Run
       run: |
         xcodebuild -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme GithubActionsDemoYourScheme -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" clean build test
-      working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/
+      working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/
       
     
    # - name: Deploy
