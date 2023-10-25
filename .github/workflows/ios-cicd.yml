@@ -13,17 +13,17 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@main
 
-    - name: Set up Xcode
-      uses: actions/setup-xcode@main
-      with:
-        xcode-version: '15.0'
+   # - name: Set up Xcode
+   #   uses: actions/setup-xcode@main
+   #   with:
+   #     xcode-version: '15.0'
 
-    - name: Install dependencies
-      run: |
-        gem install bundler
-        bundle install
-        pod install
-      working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj
+   # - name: Install dependencies
+   #   run: |
+#        gem install bundler
+    #    bundle install
+    #    pod install
+     # working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj
 
     - name: Build and Test
       run: xcodebuild -workspace GithubActionsDemo.xcworkspace -scheme GithubActionsDemo -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" test
