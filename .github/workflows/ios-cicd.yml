@@ -14,14 +14,14 @@ jobs:
       uses: actions/checkout@main
 
     - name: Set up Xcode
-      uses: action/setup-Xcode@main
+      uses: actions/setup-XCode@main
       with:
         xcode-version: '15.0.1'  # Update with your Xcode version
 
-    #- name: Build and Run
-     # run: |
-     #   xcodebuild -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme GithubActionsDemoYourScheme -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" clean build test
-    #  working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/
+    - name: Build and Run
+      run: |
+        xcodebuild -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme GithubActionsDemoYourScheme -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" clean build test
+      working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/
       
     
    # - name: Deploy
