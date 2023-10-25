@@ -11,12 +11,12 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@main
 
     - name: Set up Xcode
-      uses: action/setup-Xcode@v2
+      uses: action/setup-Xcode@main
       with:
-        xcode-version: '14.1'  # Update with your Xcode version
+        xcode-version: '15.0.1'  # Update with your Xcode version
 
     - name: Build and Run
       run: |
