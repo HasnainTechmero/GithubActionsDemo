@@ -13,8 +13,8 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@main
 
-    - name: Set up Xcode
-      uses: actions/setup-XCode@main
+    - name: Set up Xcode 15.0.1
+      uses: actions/setup-xcode@v2
       with:
         xcode-version: '15.0.1'  # Update with your Xcode version
 
