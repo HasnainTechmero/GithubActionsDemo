@@ -16,7 +16,7 @@ jobs:
     - name: Set up Xcode 15.0.1
       run: |
         XCODE_VERSION="15.0.1"
-        sudo xcode-select -s /Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer
+        sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
         xcodebuild -version
       shell: bash
 
