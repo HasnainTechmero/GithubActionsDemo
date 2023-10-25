@@ -14,9 +14,11 @@ jobs:
       uses: actions/checkout@main
 
     - name: Set up Xcode 15.0.1
-      uses: actions/setup-xcode@v2
-      with:
-        xcode-version: '15.0.1'  # Update with your Xcode version
+      run: |
+        XCODE_VERSION="15.0.1"
+        sudo xcode-select -s /Applications/Xcode_${XCODE_VERSION}.app/Contents/Developer
+        xcodebuild -version
+      shell: bash
 
     - name: Build and Run
       run: |
