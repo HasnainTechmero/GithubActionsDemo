@@ -26,7 +26,7 @@ jobs:
      # working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj
 
     - name: Build and Test
-      run: xcodebuild -workspace GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" test
+      run: xcodebuild -workspace /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme GithubActionsDemo -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" test
 
    # - name: Deploy
       #uses: actions/setup-xcode@main
