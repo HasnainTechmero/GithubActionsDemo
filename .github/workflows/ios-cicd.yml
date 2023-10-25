@@ -14,7 +14,7 @@ jobs:
       uses: actions/checkout@main
 
     - name: Set up Xcode
-      uses: actions/setup-xcode@main
+      uses: xcpretty/action/setup-xcode@main
       with:
         xcode-version: '14.1'  # Update with your Xcode version
 
