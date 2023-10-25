@@ -13,10 +13,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@main
 
-    - name: Set up Xcode
-      uses: xcpretty/action/setup-xcode@main
-      with:
-        xcode-version: '14.1'  # Update with your Xcode version
+   # - name: Set up Xcode
+    #  uses: xcpretty/action/setup-xcode@main
+    #  with:
+    #    xcode-version: '14.1'  # Update with your Xcode version
 
     - name: Build and Run
       run: |
