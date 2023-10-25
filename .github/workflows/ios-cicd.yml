@@ -11,23 +11,23 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@main
 
     - name: Set up Xcode
-      uses: actions/setup-xcode@v2
+      uses: actions/setup-xcode@main
       with:
-        xcode-version: '13.0'
+        xcode-version: '15.0'
 
     - name: Install dependencies
       run: |
         gem install bundler
         bundle install
         pod install
-      working-directory: YourProjectDirectory
+      working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj
 
     - name: Build and Test
-      run: xcodebuild -workspace YourProject.xcworkspace -scheme YourScheme -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13" test
+      run: xcodebuild -workspace GithubActionsDemo.xcworkspace -scheme GithubActionsDemo -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" test
 
-    - name: Deploy
-      uses: actions/setup-xcode@v2
+   # - name: Deploy
+      #uses: actions/setup-xcode@main
       # Add your deployment steps here, e.g., uploading to App Store Connect or TestFlight
