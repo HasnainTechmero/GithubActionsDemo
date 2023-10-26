@@ -26,6 +26,26 @@ jobs:
         git checkout main
       env:
         GIT_AUTH_TOKEN: ${{ secrets.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 }}
+
+    - name: Bump Version
+      run: |
+        # Extract the current version number from your project file (e.g., Info.plist).
+        current_version=$(plutil -p -key CFBundleShortVersionString YourProject/Info.plist)
+
+        # Increment the version number (adjust this as per your versioning scheme).
+        new_version=$(echo $current_version | awk -F. '{$NF+=1; OFS="."} 1')
+
+        # Update the version in your project file.
+        plutil -replace CFBundleShortVersionString -string "$new_version" /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj/Info.plist
+
+        # Commit the changes and push to the repository.
+        git add /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj/Info.plist
+        git commit -m "Bump version to $new_version"
+        git push origin main
+        
+      env:
+        GIT_AUTH_TOKEN: ${{ secrets.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 }}
+        
     #- name: Build and Run
     #  run: |
      #   xcodebuild -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme GithubActionsDemoYourScheme -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" clean build test
