@@ -36,8 +36,8 @@ jobs:
         echo "New build number: $NEW_BUILD_NUMBER"
         /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD_NUMBER" "$PLIST_FILE"
         
-       # git config --global user.email "you@example.com"
-       # git config --global user.name "Your Name"
+        git config --global user.email "hasnaintechmero@gmail.com"
+        git config --global user.name "HasnainTechmero"
        
         git add "$PLIST_FILE"
         git commit -m "Bump build number to $NEW_BUILD_NUMBER"
