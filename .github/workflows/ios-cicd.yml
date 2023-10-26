@@ -19,9 +19,16 @@ jobs:
         xcodebuild -version
       shell: bash
 
-    - name: Build and Run
+    - name: Set up Git
       run: |
-        xcodebuild -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme GithubActionsDemoYourScheme -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" clean build test
+        git config --global user.email "hasnaintechmero@gmail.com"
+        git config --global user.name "HasnainTechmero"
+        git checkout main
+      env:
+        GIT_AUTH_TOKEN: ${{ secrets.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 }}
+    #- name: Build and Run
+    #  run: |
+     #   xcodebuild -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme GithubActionsDemoYourScheme -destination "platform=iOS Simulator,OS=16.0,name=iPhone 13" clean build test
      # working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/
       
     
