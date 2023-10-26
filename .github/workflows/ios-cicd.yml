@@ -30,7 +30,7 @@ jobs:
     - name: Bump Version
       run: |
         # Extract the current version number from your project file (e.g., Info.plist).
-        current_version=$(plutil -p -key CFBundleShortVersionString YourProject/Info.plist)
+        current_version=$(plutil -p -extract keypath fmt CFBundleShortVersionString YourProject/Info.plist)
 
         # Increment the version number (adjust this as per your versioning scheme).
         new_version=$(echo $current_version | awk -F. '{$NF+=1; OFS="."} 1')
