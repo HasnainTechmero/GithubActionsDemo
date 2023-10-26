@@ -29,21 +29,27 @@ jobs:
 
     - name: Update Version and Build Number
       run: |
-       # Extract the current version from the Info.plist file
-        current_version=$(/usr/libexec/PlistBuddy -c "Print CFBundleShortVersionString" /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj/Info.plist)
-
-        # Increment the version number (adjust this based on your versioning scheme)
-        new_version=$(echo $current_version | awk -F. '{$NF+=1; OFS="."} 1')
-
-        # Update the Info.plist with the new version
-        /usr/libexec/PlistBuddy -c "Set :CFBundleShortVersionString $new_version" /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj/Info.plist
-
-        # Commit the changes and push to the repository
-        git add /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj/Info.plist
-        git commit -m "Bump version to $new_version and build number to $new_build_number"
+        PROJECT_PATH=/Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj
+        PLIST_FILE=$PROJECT_PATH/Info.plist
+        BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
+        NEW_BUILD_NUMBER=$((BUILD_NUMBER + 1))
+        echo "New build number: $NEW_BUILD_NUMBER"
+        /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD_NUMBER" "$PLIST_FILE"
+        
+       # git config --global user.email "you@example.com"
+       # git config --global user.name "Your Name"
+       
+        git add "$PLIST_FILE"
+        git commit -m "Bump build number to $NEW_BUILD_NUMBER"
         git push origin main
       env:
         GITHUB_TOKEN: ${{ secrets.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 }}
+
+
+
+
+
+
         
     #- name: Build and Run
     #  run: |
