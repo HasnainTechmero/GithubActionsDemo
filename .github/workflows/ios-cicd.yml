@@ -27,24 +27,26 @@ jobs:
       env:
         GIT_AUTH_TOKEN: ${{ secrets.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 }}
 
-    - name: Bump Version
+    - name: Update Version and Build Number
       run: |
-        # Extract the current version number from your project file (e.g., Info.plist).
-        current_version=$(plutil -p -extract keypath fmt CFBundleShortVersionString YourProject/Info.plist)
+        # Get the current version and build number from Info.plist
+        current_version=$(agvtool what-marketing-version -terse1)
+        current_build_number=$(agvtool what-version -terse)
 
-        # Increment the version number (adjust this as per your versioning scheme).
+        # Increment the version and build number (adjust this as per your versioning scheme)
         new_version=$(echo $current_version | awk -F. '{$NF+=1; OFS="."} 1')
+        new_build_number=$((current_build_number + 1))
 
-        # Update the version in your project file.
-        plutil -replace CFBundleShortVersionString -string "$new_version" /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj/Info.plist
+        # Update Info.plist with the new version and build number
+        agvtool new-marketing-version "$new_version"
+        agvtool new-version -all "$new_build_number"
 
-        # Commit the changes and push to the repository.
+        # Commit the changes and push to the repository
         git add /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj/Info.plist
-        git commit -m "Bump version to $new_version"
+        git commit -m "Bump version to $new_version and build number to $new_build_number"
         git push origin main
-        
       env:
-        GIT_AUTH_TOKEN: ${{ secrets.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 }}
+        GITHUB_TOKEN: ${{ secrets.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 }}
         
     #- name: Build and Run
     #  run: |
