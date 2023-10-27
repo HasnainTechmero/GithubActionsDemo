@@ -31,7 +31,6 @@ jobs:
       run: |
       
         PLIST_FILE=/Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo/InfoFileFolder/Info.plist
-        
         BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
         NEW_BUILD_NUMBER=$((BUILD_NUMBER + 1))
         echo "New build number: $NEW_BUILD_NUMBER"
