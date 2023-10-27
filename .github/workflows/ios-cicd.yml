@@ -27,23 +27,42 @@ jobs:
       env:
         GIT_AUTH_TOKEN: ${{ secrets.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 }}
 
-    - name: Update Version and Build Number
+
+    - name: Update App Version
       run: |
-      
-        PLIST_FILE=/Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo/InfoFileFolder/Info.plist
-        BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
-        NEW_BUILD_NUMBER=$((BUILD_NUMBER + 1))
-        echo "New build number: $NEW_BUILD_NUMBER"
-        /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD_NUMBER" "$PLIST_FILE"
-        
-        git config --global user.email "hasnaintechmero@gmail.com"
+        APP_VERSION=$(echo ${{ github.event.commits[0].message }} | cut -d' ' -f2)
+        BUILD_NUMBER=$(git rev-list --count HEAD)
+        APP_NAME=$(xcrun agvtool what-app)
+        echo "Updating App Version to $APP_VERSION"
+        echo "Updating Build Number to $BUILD_NUMBER"
+        xcrun agvtool new-version -all "$APP_VERSION"
+        xcrun agvtool new-marketing-version "$APP_VERSION"
+
+    - name: Commit and Push
+      run: |
         git config --global user.name "HasnainTechmero"
-       
-        git add "$PLIST_FILE"
-        git commit -m "Bump build number to $NEW_BUILD_NUMBER"
+        git config --global user.email "hasnaintechmero@gmail.com"
+        git add -A
+        git commit -m "Update App Version to $APP_VERSION (Build $BUILD_NUMBER)"
         git push origin main
-      env:
-        GITHUB_TOKEN: ${{ secrets.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 }}
+        
+   # - name: Update Version and Build Number
+    #  run: |
+      
+     #   PLIST_FILE=/Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo/InfoFileFolder/Info.plist
+      #  BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c "Print CFBundleVersion" "$PLIST_FILE")
+       # NEW_BUILD_NUMBER=$((BUILD_NUMBER + 1))
+        #echo "New build number: $NEW_BUILD_NUMBER"
+        #/usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD_NUMBER" "$PLIST_FILE"
+        
+       # git config --global user.email "hasnaintechmero@gmail.com"
+       # git config --global user.name "HasnainTechmero"
+       
+      #  git add "$PLIST_FILE"
+       # git commit -m "Bump build number to $NEW_BUILD_NUMBER"
+        #git push origin main
+      #env:
+       # GITHUB_TOKEN: ${{ secrets.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 }}
 
 
 
