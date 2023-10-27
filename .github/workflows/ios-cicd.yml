@@ -29,7 +29,8 @@ jobs:
 
     - name: Update Version and Build Number
       run: |
-        PLIST_FILE=/Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo/Info.plist
+      
+        PLIST_FILE=/Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo/InfoFileFolder/Info.plist
         BUILD_NUMBER=$(/usr/libexec/PlistBuddy -c "Print CFBuildVersion" "$PLIST_FILE")
         NEW_BUILD_NUMBER=$((BUILD_NUMBER + 1))
         echo "New build number: $NEW_BUILD_NUMBER"
