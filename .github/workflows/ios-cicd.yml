@@ -30,7 +30,7 @@ jobs:
 
     - name: Update App Version
       run: |
-        APP_VERSION = "2.0"
+        APP_VERSION =$("2.0")
         BUILD_NUMBER=$(git rev-list --count HEAD)
         APP_NAME=$(xcrun agvtool what-app)
         echo "Updating App Version to $APP_VERSION"
