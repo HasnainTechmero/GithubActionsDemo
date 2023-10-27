@@ -28,7 +28,6 @@ jobs:
       env:
         GIT_AUTH_TOKEN: ${{ secrets.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 }}
 
-
     - name: Update App Version
       run: |
         APP_VERSION=$(echo ${{ github.event.commits[0].message }} | cut -d' ' -f2)
