@@ -60,7 +60,7 @@ jobs:
     - name: build archive
       run: |
           xcodebuild -scheme "GithubActionsDemo" \
-          -archivePath $RUNNER_TEMP/iamgroot.xcarchive \
+          -archivePath $RUNNER_TEMP//Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/Archive/GithubActionsDemoArchives.xcarchives.xcarchive \
           -sdk iphoneos \
           -configuration Debug \
           -destination generic/platform=iOS \
