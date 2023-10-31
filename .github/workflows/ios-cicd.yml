@@ -59,9 +59,17 @@ jobs:
 
     - name: build archive
       run: |
-        xcodebuild archive -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme "GithubActionsDemo" -archivePath /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/Archive/NewDemoArchive.xcarchive
-        clean archive          
+        xcodebuild archive -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme "GithubActionsDemo" -archivePath /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/Archive/NewDemoArchive
+        working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/       
 
+#    - name: Build and Archive
+#      run: |
+#        xcodebuild -workspace YourApp.xcworkspace \
+#          -scheme YourScheme \
+#          -sdk iphoneos \
+#          -configuration Release \
+#          -archivePath $HOME/YourApp.xcarchive \
+#          clean archive
    # - name: export ipa
    #   env:
    #       EXPORT_OPTIONS_PLIST: ${{ secrets.EXPORT_OPTIONS_PLIST }}
