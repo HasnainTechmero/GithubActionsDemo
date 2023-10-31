@@ -35,7 +35,7 @@ jobs:
           BUILD_PROVISION_PROFILE_BASE64: ${{ secrets.GITHUBACTIONSDEMO_DISTRIBUTION_19OCT2023 }}
           KEYCHAIN_SECRET: ${{ secrets.KEYCHAIN_SECRET }}
       run: |
-          # create variables
+          # create variables\
           CERTIFICATE_PATH=$RUNNER_TEMP/build_certificate.p12
           PP_PATH=$RUNNER_TEMP/build_pp.mobileprovision
           KEYCHAIN_PATH=$RUNNER_TEMP/app-signing.keychain-db
