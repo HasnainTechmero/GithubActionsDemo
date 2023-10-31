@@ -59,11 +59,12 @@ jobs:
 
     - name: build archive
       run: |
-          xcodebuild -scheme "GithubActionsDemo" \
-          -archivePath $RUNNER_TEMP/Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/Archive \
-          -sdk iphoneos \
-          -configuration Debug \
-          -destination generic/platform=iOS \
+        xcodebuild archive -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme "GithubActionsDemo" -archivePath /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/Archive/NewDemoArchive.xcarchive
+         # xcodebuild -scheme "GithubActionsDemo" \
+         # -archivePath $RUNNER_TEMP/Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/Archive \
+         # -sdk iphoneos \
+         # -configuration Debug \
+         # -destination generic/platform=iOS \
           clean archive          
 
     - name: export ipa
