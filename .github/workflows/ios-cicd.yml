@@ -59,9 +59,11 @@ jobs:
 
     - name: build archive
       run: |
-        xcodebuild archive -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme "GithubActionsDemo" -archivePath /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/Archive/NewDemoArchive
-        working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/       
-
+        xcodebuild archive -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme "GithubActionsDemo" -archivePath /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/Archive/NewDemoArchive \
+        clean archive
+        # working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/       
+               
+        
 #    - name: Build and Archive
 #      run: |
 #        xcodebuild -workspace YourApp.xcworkspace \
