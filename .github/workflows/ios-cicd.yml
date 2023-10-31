@@ -60,7 +60,7 @@ jobs:
     - name: build archive
       run: |
         xcodebuild archive -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme "GithubActionsDemo" -archivePath /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/Archive/NewDemoArchive.xcarchive
-         clean archive          
+        clean archive          
 
    # - name: export ipa
    #   env:
