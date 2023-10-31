@@ -28,6 +28,7 @@ jobs:
       env:
         GIT_AUTH_TOKEN: ${{ secrets.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 }}
 
+
     - name: Install the Apple certificate and provisioning profile
       env:
           BUILD_CERTIFICATE_BASE64: ${{ secrets.BUILD_CERTIFICATE_BASE64 }}
