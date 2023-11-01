@@ -62,6 +62,7 @@ jobs:
         xcodebuild archive -project /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/GithubActionsDemo.xcodeproj -scheme "GithubActionsDemo" -archivePath /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/Archive/NewDemoArchive \
         clean archive
         # working-directory: /Users/techbaroda/Projects/GithubActionsDemo_App/GithubActionsDemo/       
+
                
         
 #    - name: Build and Archive
